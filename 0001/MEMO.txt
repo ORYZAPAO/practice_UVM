@@ -8,7 +8,7 @@ vlog -sv $dir/uvm_pkg.sv +incdir+$dir +define+UVM_HDL_NO_DPI+UVM_NO_DPI+UVM_CMDL
 set dir=./
 
 ## Compile
-vlog -sv tb_top.sv +incdir+./uvm-1.2/src
+vlog -sv tb_top.sv +incdir+./uvm-1.2/src+./model
 
 ## Execute
 vsim -c tb_top +UVM_TESTNAME=test -do "run -all;quit"
