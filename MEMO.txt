@@ -1,0 +1,14 @@
+##
+vlib work
+
+## UVM Compile
+##set dir=./uvm-1.2/src/
+export dir=./uvm-1.2/src/
+vlog -sv $dir/uvm_pkg.sv +incdir+$dir +define+UVM_HDL_NO_DPI+UVM_NO_DPI+UVM_CMDLINE_NO_DPI+UVM_REGEX_NO_DPI
+set dir=./
+
+## Compile
+vlog -sv tb_top.sv +incdir+./uvm-1.2/src
+
+## Execute
+vsim -c tb_top +UVM_TESTNAME=test -do "run -all;quit"
